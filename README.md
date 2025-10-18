@@ -28,7 +28,7 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, and Ta
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/tushank-portfolio.git
+git clone https://github.com/tushank/tushank-portfolio.git
 cd tushank-portfolio
 ```
 
@@ -68,7 +68,7 @@ pnpm start
 ### Deploy to Vercel
 The easiest way to deploy is using [Vercel Platform](https://vercel.com):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/tushank-portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tushank/tushank-portfolio)
 
 ## 📁 Project Structure
 
@@ -125,7 +125,7 @@ See [GOOGLE_ANALYTICS_SETUP.md](./GOOGLE_ANALYTICS_SETUP.md) for detailed instru
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/tushank-portfolio/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/tushank/tushank-portfolio/issues).
 
 ## 📝 License
 
@@ -133,10 +133,10 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-**Your Name**
-- Website: [your-portfolio-url.com](https://your-portfolio-url.com)
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [@yourprofile](https://linkedin.com/in/yourprofile)
+**Tushank**
+- Website: [tushank-portfolio.vercel.app](https://tushank-portfolio.vercel.app)
+- GitHub: [@tushank](https://github.com/tushank)
+- Portfolio: [https://github.com/tushank/tushank-portfolio](https://github.com/tushank/tushank-portfolio)
 
 ## 🌟 Show your support
 
