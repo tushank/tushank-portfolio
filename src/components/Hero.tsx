@@ -76,7 +76,7 @@ export default function Hero() {
               Download CV
             </a>
             <Link
-              href="#about"
+              href="#education"
               className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white/10 text-white rounded-full text-sm sm:text-base font-medium hover:bg-white/20 transition-colors flex items-center gap-2"
             >
               <User className="w-4 h-4 sm:w-5 sm:h-5" />
