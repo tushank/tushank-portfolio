@@ -66,14 +66,15 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="flex justify-center space-x-3 sm:space-x-4">
-            <Link
-              href="#contact"
+            <a
+              href="/resume/resume.pdf"
+              download="Tushank_Resume.pdf"
               onClick={() => trackEngagement('download_cv', 'hero_section')}
               className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-black rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors flex items-center gap-2"
             >
               <FileDown className="w-4 h-4 sm:w-5 sm:h-5" />
               Download CV
-            </Link>
+            </a>
             <Link
               href="#about"
               className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white/10 text-white rounded-full text-sm sm:text-base font-medium hover:bg-white/20 transition-colors flex items-center gap-2"

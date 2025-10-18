@@ -1,19 +1,19 @@
 "use client";
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-export default function Analytics() {
+function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (!GA_ID || !(window as any).gtag) return;
+    if (!GA_ID || !window.gtag) return;
     
     // Track page views
-    (window as any).gtag("config", GA_ID, {
+    window.gtag("config", GA_ID, {
       page_path: pathname + (searchParams?.toString() ? `?${searchParams}` : ""),
       page_title: document.title,
       page_location: window.location.href
@@ -22,7 +22,7 @@ export default function Analytics() {
 
   // Track custom events
   useEffect(() => {
-    if (!GA_ID || !(window as any).gtag) return;
+    if (!GA_ID || !window.gtag) return;
 
     // Track scroll depth
     let maxScroll = 0;
@@ -30,7 +30,7 @@ export default function Analytics() {
       const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
       if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
         maxScroll = scrollPercent;
-        (window as any).gtag("event", "scroll", {
+        window.gtag("event", "scroll", {
           event_category: "engagement",
           event_label: `${scrollPercent}%`,
           value: scrollPercent
@@ -42,7 +42,7 @@ export default function Analytics() {
     const startTime = Date.now();
     const trackTimeOnPage = () => {
       const timeSpent = Math.round((Date.now() - startTime) / 1000);
-      (window as any).gtag("event", "timing_complete", {
+      window.gtag("event", "timing_complete", {
         name: "time_on_page",
         value: timeSpent
       });
@@ -57,6 +57,10 @@ export default function Analytics() {
     };
   }, []);
 
+  return null;
+}
+
+export default function Analytics() {
   if (!GA_ID) {
     // Show a helpful message in development
     if (process.env.NODE_ENV === "development") {
@@ -83,6 +87,9 @@ export default function Analytics() {
           });
         `}
       </Script>
+      <Suspense fallback={null}>
+        <AnalyticsTracker />
+      </Suspense>
     </>
   );
 }

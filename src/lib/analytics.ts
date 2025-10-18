@@ -2,12 +2,12 @@
 
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (...args: unknown[]) => void;
   }
 }
 
 // Track custom events
-export const trackEvent = (eventName: string, parameters: Record<string, any> = {}) => {
+export const trackEvent = (eventName: string, parameters: Record<string, string | number | boolean> = {}) => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, parameters);
   }
@@ -38,12 +38,15 @@ export const trackConversion = (conversionName: string, value?: number) => {
 
 // Track user engagement
 export const trackEngagement = (action: string, label: string, value?: number) => {
-  trackEvent('engagement', {
+  const params: Record<string, string | number | boolean> = {
     event_category: 'user_interaction',
     event_label: label,
-    action: action,
-    value: value
-  });
+    action: action
+  };
+  if (value !== undefined) {
+    params.value = value;
+  }
+  trackEvent('engagement', params);
 };
 
 // Track social interactions
