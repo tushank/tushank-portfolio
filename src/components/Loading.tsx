@@ -1,33 +1,46 @@
 "use client";
 import { useEffect, useState } from "react";
 
+const greetings = [
+  "Hello",
+  "नमस्ते",
+  "Hola",
+  "Bonjour",
+  "Ciao",
+  "Olá",
+  "Здравствуйте",
+  "Merhaba",
+  "Γειά",
+  "Hej",
+  "Hallo",
+  "Salam",
+];
+
 export default function Loading() {
   const [isLoading, setIsLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const [currentGreeting, setCurrentGreeting] = useState(0);
+  const [showGreeting, setShowGreeting] = useState(true);
 
   useEffect(() => {
-    // Simulate loading progress
-    const progressInterval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(progressInterval);
-          return 100;
+    // Cycle through all greetings
+    const greetingInterval = setInterval(() => {
+      setCurrentGreeting((prev) => {
+        const next = prev + 1;
+        if (next >= greetings.length) {
+          // All greetings shown, fade out
+          clearInterval(greetingInterval);
+          setShowGreeting(false);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 500);
+          return prev;
         }
-        return prev + Math.random() * 15;
+        return next;
       });
-    }, 100);
-
-    // Complete loading after 2 seconds
-    const timer = setTimeout(() => {
-      setProgress(100);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 300);
-    }, 2000);
+    }, 800);
 
     return () => {
-      clearTimeout(timer);
-      clearInterval(progressInterval);
+      clearInterval(greetingInterval);
     };
   }, []);
 
@@ -35,35 +48,24 @@ export default function Loading() {
 
   return (
     <div 
-      className="loading-overlay"
+      className="intro-overlay"
       role="status"
       aria-live="polite"
-      aria-label="Loading portfolio"
+      aria-label="Introduction animation"
     >
-      <div className="text-center">
-        <div className="loading-text mb-8" aria-hidden="true">
-          Please wait while we set things up
-        </div>
-        
-        {/* Progress Bar */}
-        <div className="w-64 h-2 bg-gray-800 rounded-full overflow-hidden mb-4" aria-hidden="true">
-          <div 
-            className="h-full bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full transition-all duration-300 ease-out"
-            style={{ width: `${Math.min(progress, 100)}%` }}
-          ></div>
-        </div>
-        
-        <div className="text-gray-400 text-sm mb-6" aria-hidden="true">
-          {Math.round(progress)}% Complete
-        </div>
-        
-        <div className="loading-spinner" aria-hidden="true"></div>
-        
-        {/* Screen reader announcement */}
-        <span className="sr-only">
-          Loading portfolio, {Math.round(progress)}% complete
-        </span>
+      <div className="intro-container">
+        {/* Greeting Text */}
+        {showGreeting && (
+          <div className="greeting-text">
+            {greetings[currentGreeting]}
+          </div>
+        )}
       </div>
+      
+      {/* Screen reader announcement */}
+      <span className="sr-only">
+        Introduction animation playing
+      </span>
     </div>
   );
 }
