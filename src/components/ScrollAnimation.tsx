@@ -15,9 +15,14 @@ export function ScrollAnimation({ children, className = "" }: ScrollAnimationPro
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
+      transition={{ 
+        duration: 0.7, 
+        ease: [0.21, 1.11, 0.81, 0.99],
+        opacity: { duration: 0.5 },
+        scale: { duration: 0.7 }
+      }}
       className={className}
     >
       {children}

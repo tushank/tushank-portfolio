@@ -34,23 +34,35 @@ export default function Loading() {
   if (!isLoading) return null;
 
   return (
-    <div className="loading-overlay">
+    <div 
+      className="loading-overlay"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading portfolio"
+    >
       <div className="text-center">
-        <div className="loading-text mb-8">Please wait while we set things up</div>
+        <div className="loading-text mb-8" aria-hidden="true">
+          Please wait while we set things up
+        </div>
         
         {/* Progress Bar */}
-        <div className="w-64 h-2 bg-gray-800 rounded-full overflow-hidden mb-4">
+        <div className="w-64 h-2 bg-gray-800 rounded-full overflow-hidden mb-4" aria-hidden="true">
           <div 
             className="h-full bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full transition-all duration-300 ease-out"
             style={{ width: `${Math.min(progress, 100)}%` }}
           ></div>
         </div>
         
-        <div className="text-gray-400 text-sm mb-6">
+        <div className="text-gray-400 text-sm mb-6" aria-hidden="true">
           {Math.round(progress)}% Complete
         </div>
         
-        <div className="loading-spinner"></div>
+        <div className="loading-spinner" aria-hidden="true"></div>
+        
+        {/* Screen reader announcement */}
+        <span className="sr-only">
+          Loading portfolio, {Math.round(progress)}% complete
+        </span>
       </div>
     </div>
   );

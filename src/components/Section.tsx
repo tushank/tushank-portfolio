@@ -5,14 +5,14 @@ export default function Section({
   id, title, className, children
 }: PropsWithChildren<{ id?: string; title: string; className?: string }>) {
   return (
-    <section id={id} className={`py-16 sm:py-20 ${className ?? ""}`}>
-      <div className="container max-w-5xl mx-auto px-4">
+    <section id={id} className={`py-12 sm:py-16 md:py-20 lg:py-24 relative ${className ?? ""}`}>
+      <div className="container max-w-6xl mx-auto">
         <ScrollAnimation>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 gradient-text">
+          <h2 className="section-title text-center sm:text-left gradient-text-accent">
             {title}
           </h2>
         </ScrollAnimation>
-        <div className="mt-8">{children}</div>
+        <div className="mt-6 sm:mt-8 md:mt-10">{children}</div>
       </div>
     </section>
   );

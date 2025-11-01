@@ -3,6 +3,7 @@ import "./globals.css";
 import { person } from "@/lib/resume";
 import Analytics from "@/components/Analytics";
 import Footer from "@/components/Footer";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tushank.dev"),
@@ -52,7 +53,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Analytics />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
-        {children}
+        {/* Skip to main content link for accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:static focus:w-auto focus:h-auto focus:p-4 focus:m-4 focus:overflow-visible focus:clip-auto focus:whitespace-normal focus:z-[100] focus:absolute focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          Skip to main content
+        </a>
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
         <Footer />
       </body>
     </html>

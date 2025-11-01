@@ -102,11 +102,11 @@
 
 ###
 
-A modern, responsive portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth animations, dark theme, and optimized performance.
+A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. Features smooth animations, dark theme, and optimized performance.
 
 ## ✨ Features
 
-- ⚡ **Next.js 14** - React framework with App Router
+- ⚡ **Next.js 15** - React framework with App Router
 - 🎨 **Tailwind CSS** - Utility-first styling
 - 🌊 **Framer Motion** - Smooth scroll animations
 - 📱 **Fully Responsive** - Mobile-first design
@@ -118,7 +118,7 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, and Ta
 
 ## 🛠️ Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 15 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **Animations:** Framer Motion

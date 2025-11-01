@@ -2,7 +2,7 @@ export const person = {
     name: "Tushank Shethe",
     title: "Principal Frontend Engineer",
     email: "tushank.shethe@gmail.com",
-    phone: "+91 7020435194",
+    phone: "+91-7020435194",
     location: "Nagpur, India",
     linkedin: "https://www.linkedin.com/in/tushank-shethe-87a963b8/",
     github: "https://github.com/tushank", // update if needed
@@ -63,6 +63,11 @@ export const person = {
         degree: "B.E. Computer Science & Engineering",
         period: "2012 – 2016", note: "CGPA 8.47" }
     ],
-    awards: ["High Five Award (React)", "Spot Award (Angular)"]
+    awards: ["High Five Award (React)", "Spot Award (Angular)"],
+    stats: {
+      githubProjects: "20+",
+      linkedinFollowers: "1500+",
+      availability: "24x7"
+    }
   };
   
