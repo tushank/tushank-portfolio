@@ -40,6 +40,11 @@ body{
   background-clip: text;
 }
 
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background-image: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
 /* Focus visibility */
 :focus-visible{ 
   outline: 2px solid rgb(var(--accent)); 

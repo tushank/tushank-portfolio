@@ -77,7 +77,7 @@ export default function NavBar() {
 
   return (
     <nav 
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-300 relative ${
         scrolled ? "bg-zinc-900/90 backdrop-blur-xl border-b border-zinc-800/50" : "bg-transparent"
       }`}
       style={scrolled ? { 
